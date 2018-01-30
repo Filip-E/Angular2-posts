@@ -19,8 +19,22 @@ var PostListComponent = (function () {
         var _this = this;
         this.postService.getAllPosts().subscribe(function (data) { return _this.posts = data; });
     };
-    PostListComponent.prototype.getComments = function (index) { };
-    PostListComponent.prototype.printComments = function (comments) { };
+    PostListComponent.prototype.getComments = function (index) {
+        var _this = this;
+        this.postService.getCommentsForPost(++index)
+            .subscribe(function (data) {
+            return _this.comments = data;
+        });
+        console.log(this.comments);
+        this.printComments(this.comments);
+        ;
+    };
+    PostListComponent.prototype.printComments = function (comments) {
+        console.log("All the names of Comments:");
+        for (var i = 0; i < comments.length; i++) {
+            console.log(comments[i].name);
+        }
+    };
     return PostListComponent;
 }());
 __decorate([
