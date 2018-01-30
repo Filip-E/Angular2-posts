@@ -25,7 +25,6 @@ var PostListComponent = (function () {
             .subscribe(function (data) {
             return _this.comments = data;
         });
-        console.log(this.comments);
         this.printComments(this.comments);
         ;
     };
