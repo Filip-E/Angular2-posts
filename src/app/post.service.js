@@ -15,9 +15,15 @@ var PostService = (function () {
         this.http = http;
     }
     // get all posts
-    PostService.prototype.getAllPosts = function () { };
+    PostService.prototype.getAllPosts = function () {
+        var url = "http://jsonplaceholder.typicode.com/posts";
+        return this.http.get(url);
+    };
     // get comments based on the index
-    PostService.prototype.getCommentsForPost = function (index) { };
+    PostService.prototype.getCommentsForPost = function (index) {
+        var url = "http://jsonplaceholder.typicode.com/post/" + index + "/comments";
+        return this.http.get(url);
+    };
     return PostService;
 }());
 PostService = __decorate([

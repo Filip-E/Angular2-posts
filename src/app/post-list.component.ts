@@ -8,17 +8,19 @@ import { PostService }  from './post.service';
 })
 
 export class PostListComponent  {
-   posts = Post[];
-
    @Output() commentsFound = new EventEmitter();
-
+   
+   posts: Post[];
+   	
    constructor(private postService: PostService) {}
 
    ngOnInit(): void {
-   	this.postService.getAllPosts().subscribe(data => this.post = data)
+   	this.postService.getAllPosts().subscribe(data => this.posts = data)
    }
 
-   getComments(index: number): void {}
+   getComments(index: number): void {
+   	
+   }
 
    printComments(comments: Comment[]): void {}
 }
